@@ -13,3 +13,41 @@ end
 def pets_sold(sold)
   return sold[:admin][:pet_sold].to_i()
 end
+
+# def increase_pets_sold(shop, sold)
+#  shop[:admin][:pets_sold] += sold
+# end
+
+def stock_count(shop)
+  return shop[:pets].count()
+end
+
+def pets_by_breed(shop, breed)
+dog_breed = []
+for pets in shop[:pets]
+  if pets[:breed] == breed
+    dog_breed.push(pets)
+  end
+
+end
+return dog_breed
+end
+
+def find_pet_by_name(shop, name)
+  for pets in shop[:pets]
+    if pets[:name] == name
+      return pets
+    end
+end
+return nil
+end
+
+def remove_pet_by_name(shop, name)
+
+pet = find_pet_by_name(shop, name)
+shop[:pets].delete(pet)
+end
+
+def add_pet_to_stock(shop, new_pet)
+  shop[:pets].push(new_pet)
+end
